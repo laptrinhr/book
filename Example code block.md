@@ -78,27 +78,41 @@ x <- NULL; x
 
 ### 2. Matrix
 ```R
-
+# Create a matrix.
+M = matrix( c('x','x','y','z','t','x'), nrow = 2, byrow = TRUE)
+print(M)
 ```
 
 ```R
-
+# another way to define a maxtrix
+matrix(1:12, nrow = 4)
+matrix(1:12, nrow = 4, byrow = TRUE)
 ```
 
 ```R
-
+# change columns and rows name of matrix
+x <- matrix(1:12, nrow = 4, dimnames = list(c("W","X","Y" ,"Z"), c("A","B","C")))
+print(x)
 ```
 
 ```R
-
+# get columns and rows name of matrix
+colnames(x)
+rownames(x)
 ```
 
 ```R
-
+# using cbind() and rbind() functions to define matrix
+cbind(c(1, 6, 9),c(3, 5, 8))
+rbind(c(1, 6, 9),c(3, 5, 8))
 ```
 
 ```R
+# access sub-matrix include 1st and 2nd rows, 2nd and 3rd columns
+x[c(1, 2),c(2, 3)]
 
+# if the column field is left blank then all columns will be accessed.
+x[c(1, 2), ] # Column field is emplty.
 ```
 
 ```R

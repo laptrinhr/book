@@ -1,7 +1,8 @@
-```
-function test() {
-  console.log("notice the blank line before this function?");
-}
+```R
+# declare a variable helloString
+helloString <- "Hello" 
+print (helloString) # print hello
+
 ```
 
 ```

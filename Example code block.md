@@ -57,6 +57,63 @@ seq(1, 3, by=0.7) # define the step size
 ```
 
 ```R
+# define vector length
+seq(1, 5, length.out = 4)
+```
+
+```R
+# change the value of vector's element
+x[3] = 7; x
+```
+
+```R
+# handle data on multiple elements
+x[x<4] = 0; x
+```
+
+```R
+# delete a vector
+x <- NULL; x
+```
+
+### 2. Matrix
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
 
 ```
 

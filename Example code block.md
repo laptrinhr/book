@@ -1,4 +1,4 @@
-### Chapter 01: R căn bản
+## Chapter 01: R căn bản
 
 ```R
 # print a text
@@ -12,7 +12,7 @@ print (helloString) # print hello
 ```
 
 ## Chapter 02: Kiểu dữ liệu trong R
-#1. Vector
+###1. Vector
 ```R
 # Create a vector.
 student <- c('james','mark',"jane")

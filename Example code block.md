@@ -883,7 +883,7 @@ setClass("Student", slots = list(name = "character",  age = "numeric", GPA = "nu
 ```R
 # Declare object of S4 class
 student <- new("Student", name = "Steve", age = 21, GPA = 3.2)
-print(student)
+show(student)
 ```
 
 ```R

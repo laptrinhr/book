@@ -128,6 +128,69 @@ class(x[1, ])
 # The drop = FALSE property can be used to prevent matrix-to-vector degradation
 x[1, , drop = FALSE]
 class(x[1, , drop = FALSE])
+```
+
+```R
+# The matrix can be used as a vector using the index of the elements
+# Note that the index of an element will be column-typed.
+x
+x[1:4]
+x[c(3,5,7)]
+```
+
+```R
+# The value of an element in a matrix can be accessed and changed using the element's index
+x
+x[1,3] <- 5
+x
+```
+
+```R
+#The elements of a matrix can also be accessed and batch processed with a single query condition
+x[x<3] <- 0; x
+```
+
+```R
+#The rbin() and cbin() functions can be used to add new rows and columns to an existing matrix
+cbind(x, c(1, 1),  c(2, 2)) #add new columns
+rbind(x,c(3,3,3), c(3,3,3)) #add new rows
+```
+
+```R
+# We can remove rows and columns from a matrix by assigning it to its submatrix
+x <- x[ , -c(1,2), drop = FALSE]
+x
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
 
 ```
 

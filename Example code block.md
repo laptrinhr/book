@@ -947,7 +947,11 @@ s1
 ### 8.5. Reference Class
 ```R
 # Define a reference class
-setRefClass("Student", fields = list(name = "character",  age = "numeric", GPA = "numeric"))
+Student <- setRefClass("Student", 
+    fields = list(
+        name = "character", 
+        age = "numeric", 
+        GPA = "numeric"))
 ```
 
 ```R

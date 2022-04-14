@@ -554,8 +554,7 @@ repeat {
 
 ```R
 # Stop loop conditional
-cat("Please enter a number n = ")
-n <- readLines("stdin", 1)
+n <- readline("Please enter a number n = ")
 n <- as.integer(n)
 count <- 2
 repeat {
@@ -583,6 +582,7 @@ while (count < 5) {
 
 ```R
 # Stop loop conditional
+# Please run as R script file
 cat("Lottery ticket vending machine", "\n")
 cat("Please input six numbers from 00 to 99: ", "\n")
 count <- 1
@@ -605,17 +605,43 @@ for (month in month.abb[1:6]) {
 ```
 
 ```R
+sentence <- unlist(strsplit("the quick brown fox jump over the lazy dog", ""))
+count <- 0
+for (char in sentence) {
+  if (char == 'o') {
+    count <- count + 1
+  }
+}
+cat(count, "of 'o' character(s) found")
+```
 
+### 6.4. Next statement
+```R
+# Use next statement to skip current loop
+values <- 1:10
+for (x in values) {
+  if (x %% 2 == 0) {
+    next
+  }
+  cat(x, " ")
+}
 ```
 
 ```R
-
+n <- 15942039485511122
+count <- 0
+while (n != 0) {
+  remainder <- n %% 10
+  n <- n%/%10
+  if (remainder != 5) {
+		  next
+  }
+  count <- count + 1;
+}
+cat(count,"digit(s) 5 found!")
 ```
 
-```R
-
-```
-
+## Chapter 07: Functions
 ```R
 
 ```

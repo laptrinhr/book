@@ -534,6 +534,105 @@ print(y)
 ```
 
 ```R
+# The switch statement also allows a string to be used as an input argument
+switch("name","name" = "John", "age" = 20, "country" = "USA")
+```
+
+## Chapter 06: R loops
+### 6.1. Repeat loop
+```R
+# Example of repeat loop
+count <- 0
+repeat {
+   count <- count + 1
+   cat("Count:", count, "\n")
+   if (count >= 4) {
+       break
+   }
+}
+```
+
+```R
+# Stop loop conditional
+cat("Please enter a number n = ")
+n <- readLines("stdin", 1)
+n <- as.integer(n)
+count <- 2
+repeat {
+    if (n%%count == 0 || count == n%/%2) {
+        break;
+    }
+    count <- count + 1
+}
+if (count < n%/%2) {
+    cat(n, "is not a prime number")
+} else {
+    cat(n, "is a prime number")
+}
+```
+
+### 6.2. while loop
+```R
+# Example of while loop
+count <- 1
+while (count < 5) {
+   cat("Count:", count, "\n")
+   count <- count + 1
+}
+```
+
+```R
+# Stop loop conditional
+cat("Lottery ticket vending machine", "\n")
+cat("Please input six numbers from 00 to 99: ", "\n")
+count <- 1
+ticket <- 1:6
+while (count <= 6) {
+   cat(count, ". ")
+   ticket[count] <- readLines("stdin", 1)
+   count <- count + 1
+}
+cat("Your ticket: ", "\n")
+ticket
+```
+
+### 6.3. for loop
+```R
+# Example of for loop
+for (month in month.abb[1:6]) {
+    cat(month, " ")
+}
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
 
 ```
 
@@ -547,8 +646,6 @@ print(y)
 
 
 
-
-6 R Loops
 7	R Functions
 
 8	R Classes and Objects 

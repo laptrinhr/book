@@ -66,6 +66,7 @@ seq(1, 5, length.out = 4)
 
 ```R
 # Change the value of vector's element
+x <- 1:5
 x[3] = 7; x
 ```
 

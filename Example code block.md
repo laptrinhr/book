@@ -249,27 +249,37 @@ trees[trees$Height < 66, ]
 ```
 
 ```R
-
+# Change the value of an element in the data frame
+staffData[1, "name"] <- "Tim"
+staffData
 ```
 
 ```R
-
+# The rbind() function can be used to add data to a data frame
+rbind(staffData ,list(4, "Larry", 35))
 ```
 
 ```R
-
+# cbind() function allows to add a new column of data to the data frame
+pos <- c("Guard", "Officer", "IT")
+cbind(staffData,  "position" = pos)
 ```
 
 ```R
-
+# Add new columns to the data frame using assignments
+pos <- c("Guard", "Officer", "IT")
+staffData$position <- pos; staffData
 ```
 
 ```R
-
+# To delete a column of data in the data frame, simply assign the value NULL to it
+staffData$position <- NULL; staffData
 ```
 
 ```R
-
+# Delete a data record by assigning that data frame to its child data frame 
+# with a negative index row of data to be deleted.
+staffData <- staffData[-1,]; staffData
 ```
 
 ```R

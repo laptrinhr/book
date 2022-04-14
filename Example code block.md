@@ -865,7 +865,132 @@ myPrint(student)
 ```
 
 ```R
+# Defines handling methods for objects of class Student
+myPrint.Student <- function(obj) {
+    cat("Student name: ", obj$name, "\n")
+    cat("Age: ", obj$age, "years old\n")
+    cat("GPA: ", obj$GPA, "points\n")
+}
+myPrint(student)
+```
 
+### 8.3. S4 class
+```R
+# Declare class S4
+setClass("Student", slots = list(name = "character",  age = "numeric", GPA = "numeric"))
+```
+
+```R
+# Declare object of S4 class
+student <- new("Student", name = "Steve", age = 21, GPA = 3.2)
+print(student)
+```
+
+```R
+# Checking S4 class object
+isS4(student)
+isS4(1:5)
+```
+
+```R
+# Define S4 class generator
+Student <- setClass("Student", slots=list(name="character",  age="numeric", GPA="numeric"))
+Student
+```
+
+```R
+# Using class generator to create object
+Student(name="Jane", age=19, GPA=3.7)
+```
+
+```R
+# Accessing and changing slot value in class S4
+student@name
+student@age
+student@GPA
+student@name <- "Tim"
+print(student)
+```
+
+```R
+# Accessing and changing slot value in class S4 using slot function
+slot(student,"age") 
+slot(student,"age") <- 22
+print(student)
+```
+
+### 8.4. Generic functions with S4 class
+```R
+# Check if a function is a generic function used in class S4
+isS4(show) 
+isS4(print)
+```
+
+```R
+# Define new generic functions for S4 class
+setMethod("show", "Student", 
+    function(object) {
+        cat("Student information: \n")
+        cat("Name:", object@name, "\n")
+        cat("Age:", object@age, "years old\n")
+        cat("GPA:", object@GPA, "points\n")
+    }
+)
+```
+
+```R
+# Using new generic functions
+s1 <- new("Student", name="Kate", age=18, GPA=3.3)
+s1
+```
+
+### 8.5. Reference Class
+```R
+# Define a reference class
+setRefClass("Student", fields = list(name = "character",  age = "numeric", GPA = "numeric"))
+```
+
+```R
+# Declare an object
+s <- Student(name="Paul",age=20,GPA=3.9)
+show(s)
+```
+
+```R
+# Accessing and changing slot value in reference class
+s$name 
+s$age 
+s$GPA
+s$name <- "Kevin"
+show(s)
+```
+
+### 8.6. Reference methods
+```R
+# Define a reference methods
+student <- setRefClass("Student",
+    fields = list(
+        name = "character", 
+        age = "numeric", 
+        GPA = "numeric"), 
+    methods = list(
+        increase_age = function(value) {
+            age <<- age + value
+        },
+        decrease_age = function(value) {
+            age <<- age - value
+        }
+    )
+)
+```
+
+```R
+# Using reference methods
+s <- Student(name="Peter", age=21, GPA=3.3)
+s$increase_age(2)
+s$age
+s$decrease_age(3)
+s$age
 ```
 
 ```R
@@ -899,16 +1024,6 @@ myPrint(student)
 ```R
 
 ```
-
-```R
-
-```
-
-```R
-
-```
-
-
  
 9 R for Data Science
 10 R for Machine Learning

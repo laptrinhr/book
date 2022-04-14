@@ -575,8 +575,8 @@ if (count < n%/%2) {
 # Example of while loop
 count <- 1
 while (count < 5) {
-   cat("Count:", count, "\n")
-   count <- count + 1
+    cat("Count:", count, "\n")
+    count <- count + 1
 }
 ```
 
@@ -588,9 +588,9 @@ cat("Please input six numbers from 00 to 99: ", "\n")
 count <- 1
 ticket <- 1:6
 while (count <= 6) {
-   cat(count, ". ")
-   ticket[count] <- readLines("stdin", 1)
-   count <- count + 1
+    cat(count, ". ")
+    ticket[count] <- readLines("stdin", 1)
+    count <- count + 1
 }
 cat("Your ticket: ", "\n")
 ticket
@@ -608,9 +608,9 @@ for (month in month.abb[1:6]) {
 sentence <- unlist(strsplit("the quick brown fox jump over the lazy dog", ""))
 count <- 0
 for (char in sentence) {
-  if (char == 'o') {
-    count <- count + 1
-  }
+    if (char == 'o') {
+        count <- count + 1
+    }
 }
 cat(count, "of 'o' character(s) found")
 ```
@@ -620,10 +620,10 @@ cat(count, "of 'o' character(s) found")
 # Use next statement to skip current loop
 values <- 1:10
 for (x in values) {
-  if (x %% 2 == 0) {
-    next
-  }
-  cat(x, " ")
+    if (x %% 2 == 0) {
+        next
+    }
+    cat(x, " ")
 }
 ```
 
@@ -631,19 +631,238 @@ for (x in values) {
 n <- 15942039485511122
 count <- 0
 while (n != 0) {
-  remainder <- n %% 10
-  n <- n%/%10
-  if (remainder != 5) {
-		  next
-  }
-  count <- count + 1;
+    remainder <- n %% 10
+    n <- n%/%10
+    if (remainder != 5) {
+        next
+    }
+    count <- count + 1;
 }
 cat(count,"digit(s) 5 found!")
 ```
 
 ## Chapter 07: Functions
+### 7.1. Function definition
 ```R
+# A function to return the squares of numbers in # a sequence.
+squaresSequence <- function(n) { 
+    for(value in 1:n) {
+        square <- value^2
+        print(square)
+    }
+}
+```
 
+```R
+# function to print a raised to the power b result <- a^b
+pow <- function(a, b) {
+    result <- a^b
+    print(paste(a,"^", b, "=", result))
+}
+
+```
+
+```R
+# Call the function squaresSequence() 
+# and pass number 5 as an argument.
+squaresSequence(5)
+```
+
+```R
+# Call function example
+fullName <- function(firstName, lastName) {
+    cat(firstName, lastName, "\n");
+}
+
+# function call with params in order without names
+fullName("Steve", "Job")
+
+# function call with params passing value by names
+fullName(lastName="Job", firstName="Steve")
+```
+
+```R
+# Use default parameter in function
+division <- function(x, y, precision = 6){
+    result <- round(x/y, digits = precision)
+    cat(result, "\n");
+}
+division(x = 7, y = 3)
+division(x = 7, y = 3, precision = 2)
+```
+
+### 7.2. Return function
+```R
+# Return value from function
+circleArea <- function(r) {
+    result <- pi*r*r;
+    return (result)
+}
+radius <- 5
+area <- circleArea(radius)
+cat("The area of a circle with radius", radius, "is:", area)
+```
+
+```R
+# Return in the middle of the function
+check <- function(value) {
+    if (value > 0) {
+        return ("value is Positive")
+    }
+    else if (value < 0) {
+        return ("value is Negative")
+    }
+    else {
+        return ("value is Zero")
+    }
+    cat("Unreachable statement")
+}
+result <- check(-6)
+cat(result)
+```
+
+```R
+# Multiple return values function
+multi_return <- function() {
+employee <- list("name" = "John", "age" = 20, "dept" = "ICT") 
+    return(employee)
+}
+employee <- multi_return()
+employee$name 
+employee$age 
+employee$dept
+```
+
+### 7.3. Scope variable
+```R
+# Global variable
+x <- 1
+func_one <- function(){
+    y <- 2
+    func_two <- function(){
+        z <- 3 
+    }
+}
+```
+
+```R
+# Local variable
+x <- 1
+func_one <- function(){
+    y <- 2
+    func_two <- function(){
+        z <- 3 
+    }
+}
+
+```
+
+```R
+# Using super assignment for local variable
+x <<- 4
+func_one <- function(){ 
+    y <<- 7
+}
+func_two <- function(){ 
+    print(y)
+    x <<- 9
+}
+func_one()
+func_two()
+print(x)
+```
+
+### 7.4. Recursive functions
+```R
+# A recursive function to calculate factorial 
+recur_factorial <- function(n) {
+    if (n == 0) 
+        return (1) 
+    else
+        return (n * recur_factorial(n-1))
+}
+recur_factorial(6)
+recur_factorial(0)
+recur_factorial(4)
+recur_factorial(9)
+```
+
+## Chapter 08: Classes and Objects
+### 8.1. S3 class
+```R
+# Declare class S3
+student <- list(name = "Bob", age = 20, GPA = 3.2) 
+class(student) <- "Student"
+```
+
+```R
+# S3 Class constructor
+student <- list(name="Bob", age=20, GPA= 3.2) 
+# create a class from list
+class(student) <- "Student"
+# create a constructor for class "student" 
+Student <- function(name, age, gpa) {
+    # check age must be an integer
+    if(age != round(age))
+        stop("age must be an integer")
+    value <- list(name=name, age=age, GPA=gpa)
+    # set a class using attr function 
+    attr(value, "class") <- "Student"
+    value
+}
+newStudent <- Student("John", 19, 3.8)
+newStudent
+```
+
+```R
+# Create S3 object with invalid parameter
+otherStudent <- Student("Alice", 18.4, 3.8)
+```
+
+### 8.2. Methods and generic functions
+```R
+# List all methods of a generic function
+methods(print)
+```
+
+```R
+# List all generic functions have default method
+methods(class="default")
+```
+
+```R
+# Declare method for a generic function
+print.Student <- function(obj) { 
+    cat("Name:", obj$name, ";")
+    cat("Age: ", obj$age, ";")
+    cat("GPA: ", obj$GPA, "\n")
+}
+print(student)
+```
+
+```R
+# To see how to implement these generic functions, use their names without arguments as follows
+print
+plot
+```
+
+```R
+# Declare my own generic function
+myPrint <- function(obj) {
+    UseMethod("myPrint")
+}
+```
+
+```R
+# Declare default method for our generic function
+myPrint.default <- function(obj) {
+    cat("this is my way to print\n")
+}
+```
+
+```R
+# Call our generic function
+myPrint(student)
 ```
 
 ```R
@@ -670,11 +889,28 @@ cat(count,"digit(s) 5 found!")
 
 ```
 
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
 
 
-7	R Functions
-
-8	R Classes and Objects 
+ 
 9 R for Data Science
 10 R for Machine Learning
 

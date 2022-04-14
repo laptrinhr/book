@@ -909,14 +909,14 @@ student@name
 student@age
 student@GPA
 student@name <- "Tim"
-print(student)
+show(student)
 ```
 
 ```R
 # Accessing and changing slot value in class S4 using slot function
 slot(student,"age") 
 slot(student,"age") <- 22
-print(student)
+show(student)
 ```
 
 ### 8.4. Generic functions with S4 class

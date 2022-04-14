@@ -395,6 +395,111 @@ typeof(7i)
 ```
 
 ```R
+# Built-in constants
+pi
+LETTERS
+letters
+month.name
+month.abb
+```
+
+```R
+# Input data from keyboard
+name <- readline(prompt="Name: ") 
+age <- readline(prompt="Age: ")
+# convert the character to an integer 
+age <- as.integer(age)
+print(paste("Hi", name, "next year you will be", age+1, "years old."))
+```
+
+## Chapter 04: R Operators
+### 4.1. Arithmetic operators
+```R
+# Example of arithmetic operators
+cat("Input two numbers x and y","\n")
+x <- readline(prompt="x = ")
+x <- as.integer(x)
+y <- readline(prompt="y = ")
+y <- as.integer(y)
+cat("x + y =", x + y, "\n")
+cat("x - y =", x - y, "\n")
+cat("x * y =", x * y, "\n")
+cat("x / y =", x / y, "\n")
+cat("x %/% y =", x %/% y, "\n") 
+cat("x %% y =", x %% y, "\n") 
+cat("x ^ y =", x^y, "\n")
+```
+
+### 4.2. Relational operators
+```R
+# Example of relational operators
+cat("Input two numbers x and y","\n")
+x <- readline(prompt="x = ")
+x <- as.integer(x)
+y <- readline(prompt="y = ")
+y <- as.integer(y)
+cat("x < y is", x < y, "\n")
+cat("x > y is", x > y, "\n")
+cat("x <= y is", x <= y, "\n")
+cat("x >= y is", x >= y, "\n")
+cat("x == y is", y == x, "\n") 
+cat("x != y is", y != x, "\n")
+```
+
+### 4.3. Logical operators
+```R
+# Example of logical operators
+x <- c(FALSE, TRUE, 0, 9)
+y <- c(TRUE, FALSE, FALSE, TRUE)
+cat("!x =",!x,"\n")
+cat("x&y =",x&y,"\n")
+cat("x&&y =",x&&y,"\n")
+cat("x|y =",x|y,"\n")
+cat("x||y =",x||y,"\n")
+cat("xor(x,y) =",xor(x, y),"\n")
+```
+
+### 4.4. Assignment operators
+```R
+# Example of assignment operators
+x <- "a"; x
+1:9 -> x; x
+x = 10; x
+```
+
+### 4.5. Operator precedence
+```R
+# Operators with higher precedence are always executed first
+1 + 5 * 3
+(1 + 5) * 3
+```
+
+## Chapter 05: Decision Making in R 
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
 
 ```
 
@@ -405,8 +510,6 @@ typeof(7i)
 
 
 
-4 R Operators
-5 Decision Making in R 
 6 R Loops
 7	R Functions
 

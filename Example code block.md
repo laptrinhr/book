@@ -17,6 +17,9 @@ print (helloString) # print hello
 # Create a vector.
 student <- c('james','mark',"jane")
 print(student)
+```
+
+```R
 # Get the class of our vector.
 print(class(student))
 ```

@@ -166,6 +166,88 @@ x <- x[ , -c(1,2), drop = FALSE]
 x
 ```
 
+### 3. List
+```R
+# Create a list.
+sampleList <- list(c("a","b","c"),1.27, sin)
+# Print the list.
+print(sampleList)
+```
+
+```R
+# Check if an R-object is a list using typeof() or class() Functions
+typeof(sampleList)
+class(sampleList)
+```
+
+```R
+# Get number of elements in the list
+length(sampleList)
+```
+
+```R
+# remove 1st element in the list
+sampleList <- sampleList [-1]
+print(sampleList)
+# add a element into list
+sampleList <- c(sampleList, 15)
+print(sampleList)
+```
+
+### 4. Array
+```R
+# Create an array
+arr <- array(c('cat', 'dog'),dim = c(2,3,2)) 
+print(arr)
+```
+
+### 5. Data frame
+```R
+# Create a data frame
+index <- 1:3
+names <- c("Steve", "Bill", "Mark")
+ages <- c(21, 34, 55)
+staffData <- data.frame("index"=index, "name"=names, "age"=ages) 
+str(staffData)
+```
+
+```R
+# Display data frame
+staffData
+```
+
+```R
+# The elements of the data frame can be accessed using row and column indexes
+staffData[1,2]
+```
+
+```R
+# The [], [[]] and $ operators allow access to the data frame's data fields as a list.
+staffData["name"]
+staffData$name
+staffData[["name"]]
+```
+
+```R
+# Introduction about "tree" data set
+str(trees)
+```
+
+```R
+# Get n element of "tree" data set
+head(trees, n = 5)
+```
+
+```R
+# R allows users to access and use data frame data in the form of matrices.
+trees[c(1,3,5,7,9), ]
+```
+
+```R
+# Get all data that satisfy the condition
+trees[trees$Height < 66, ]
+```
+
 ```R
 
 ```

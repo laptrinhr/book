@@ -747,18 +747,17 @@ func_one <- function(){
 
 ```R
 # Local variable
-x <- 1
+x <- 9
 func_one <- function(){
-    y <- 2
-    func_two <- function(){
-        z <- 3 
-    }
+	x <- 12
+	print(x)
 }
-
+func_one() 
+print(x)
 ```
 
 ```R
-# Using super assignment for local variable
+# Using super assignment for global variable
 x <<- 4
 func_one <- function(){ 
     y <<- 7

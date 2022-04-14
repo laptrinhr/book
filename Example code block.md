@@ -1,4 +1,4 @@
-## Chapter 01: R căn bản
+## Chapter 01:	R Basics
 
 ```R
 # Print a text
@@ -11,7 +11,7 @@ helloString <- "Hello"
 print (helloString) # print hello
 ```
 
-## Chapter 02: Kiểu dữ liệu trong R
+## Chapter 02: R Data Types
 ### 2.1. Vector
 ```R
 # Create a vector.
@@ -341,8 +341,57 @@ toupper(hello)
 substring("The quick brown fox", 5, 15)
 ```
 
+## Chapter 03: R Variables and Constants 
+### 3.1. Variable
 ```R
+# use rightward  and leftward operator to create or assign a value to a variable
+var1 <- c(1,2,3,4) -> var2
+# use equal operator
+var3 = c("R", "programming language")
+# print variables
+print(var1)
+print(var2)
+print(var3)
+```
 
+```R
+# Check variable data type in R
+x <- "Hello"
+cat("The class for x is",class(x),"\n") 
+x <- 34.5
+cat("and, x becomes a(n)",class(x),"\n") 
+x <- list(c("a", "b"), 12)
+cat("Lastly, x changed to",class(x),"\n")
+```
+
+```R
+# List all existing variables
+ls()
+```
+
+```R
+# List all existing variables with pattern
+ls(pattern = "ar")
+```
+
+```R
+# Delete a variable
+rm(var3)
+var3
+```
+
+```R
+# Delete all variables
+rm(list = ls())
+ls()
+```
+
+### 3.1. Constant
+```R
+# The data type of a constant
+typeof(10)
+typeof(8L)
+typeof(7i)
 ```
 
 ```R
@@ -353,26 +402,16 @@ substring("The quick brown fox", 5, 15)
 
 ```
 
-```R
 
-```
 
-```R
 
-```
+4 R Operators
+5 Decision Making in R 
+6 R Loops
+7	R Functions
 
-```R
+8	R Classes and Objects 
+9 R for Data Science
+10 R for Machine Learning
 
-```
-
-```R
-
-```
-
-```R
-
-```
-
-```R
-
-```
+Conclusion

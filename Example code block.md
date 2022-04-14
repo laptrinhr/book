@@ -475,24 +475,62 @@ x = 10; x
 ```
 
 ## Chapter 05: Decision Making in R 
+### 5.1. If statement
 ```R
+# Example of if statement
+cat("Input your mark from 0 to 100", "\n")
+mark <- readline("Your mark: ")
+if (mark >= 50){
+   cat("You passed the exam", "\n")
+}
+if (mark < 50){
+   cat("You failed the exam", "\n")
+}
+```
 
+### 5.2. if…else statement
+```R
+# Example of if…else statement
+cat("How old are you?", "\n")
+age <- readline("Your age: ")
+if (age < 18){
+   cat("Your age is less than 18", "\n")
+} else {
+   cat("Your age is above 18", "\n")
+}
+```
+
+### 5.3. if…else ladder
+```R
+# Example of if…else ladder
+cat("Input your mark from 0 to 100", "\n")
+mark <- readline(" Your mark: ")
+if (mark > 89){
+   cat(" You get an A graded")
+} else if (mark > 69){
+   cat(" You get an B graded")
+} else if (mark > 54){
+   cat(" You get an C graded")
+} else if (mark > 49){
+   cat(" You get an D graded")
+} else {
+   cat(" You get an F graded")
+}
+```
+
+### 5.3. switch statement
+```R
+# Example of switch statement
+x <- 2
+y <- switch(x,"apple","lemon","orange")
+print(y)
 ```
 
 ```R
-
-```
-
-```R
-
-```
-
-```R
-
-```
-
-```R
-
+# If the value of the variable is out of range, the switch statement will return NULL
+x <- 5
+y <- switch(x,"apple","lemon","orange")
+print(y)
 ```
 
 ```R

@@ -12,7 +12,7 @@ print (helloString) # print hello
 ```
 
 ## Chapter 02: Kiểu dữ liệu trong R
-### 1. Vector
+### 2.1. Vector
 ```R
 # Create a vector.
 student <- c('james','mark',"jane")
@@ -80,7 +80,7 @@ x[x<4] = 0; x
 x <- NULL; x
 ```
 
-### 2. Matrix
+### 2.2. Matrix
 ```R
 # Create a matrix.
 M = matrix( c('x','x','y','z','t','x'), nrow = 2, byrow = TRUE)
@@ -166,7 +166,7 @@ x <- x[ , -c(1,2), drop = FALSE]
 x
 ```
 
-### 3. List
+### 2.3. List
 ```R
 # Create a list.
 sampleList <- list(c("a","b","c"),1.27, sin)
@@ -194,14 +194,14 @@ sampleList <- c(sampleList, 15)
 print(sampleList)
 ```
 
-### 4. Array
+### 2.4. Array
 ```R
 # Create an array
 arr <- array(c('cat', 'dog'),dim = c(2,3,2)) 
 print(arr)
 ```
 
-### 5. Data frame
+### 2.5. Data frame
 ```R
 # Create a data frame
 index <- 1:3
@@ -280,6 +280,81 @@ staffData$position <- NULL; staffData
 # Delete a data record by assigning that data frame to its child data frame 
 # with a negative index row of data to be deleted.
 staffData <- staffData[-1,]; staffData
+```
+
+### 2.6. Factor
+```R
+# Create a factor
+d <- c("high", "low", "v.high", "low", "v.low", "high", "high")
+f <- factor(d); f
+```
+
+```R
+# Redefine the order of levels in factor
+vecLevel <- c("v.high","high","low","v.low")
+f <- factor(f, levels = vecLevel); f
+```
+
+```R
+# Create a factor using gl() function
+fruits <- c("Apple", "Lemon", "Orange", "Banana")
+f_fruits <- gl(2, 3, labels = fruits); 
+f_fruits
+```
+
+```R
+# Access and change elements of factor
+f_fruits[3] <- "Orange"
+f_fruits[4] <- "Banana"
+f_fruits
+```
+
+### 2.7. String
+```R
+# Create a string
+str <- "Hello! I'm a R coder."
+str
+```
+
+```R
+# Strings can be concatenated using the paste() function.
+x <- "Hello!"
+y <- "How are you"
+z <- "today"
+hello <- paste(x, y, z , "?", sep = " ")
+hello
+```
+
+```R
+# Get length of string
+nchar(hello)
+```
+
+```R
+# Convert all characters in a string to uppercase or lowercase
+tolower(hello)
+toupper(hello)
+```
+
+```R
+# Get a substring
+substring("The quick brown fox", 5, 15)
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
+```
+
+```R
+
 ```
 
 ```R

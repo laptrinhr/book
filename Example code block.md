@@ -998,6 +998,7 @@ s$age
 ```
 
 ## Chapter 09: R for Data Science
+### 9.1. Read data from CSV file
 ```R
 # Get and set current working directory
 getwd()
@@ -1007,7 +1008,8 @@ getwd()
 
 ```R
 # Read data from CSV file
-# 
+# file employees.csv can be download from link below 
+# https://github.com/laptrinhr/book/blob/main/employees.csv
 data <- read.csv("employees.csv") 
 print(data)
 ```
@@ -1019,6 +1021,7 @@ print(ncol(data))
 print(nrow(data))
 ```
 
+### 9.2. Query data
 ```R
 # Query highest salary 
 highestSalary <- max(data$salary) 
@@ -1027,21 +1030,165 @@ print(highestSalary)
 
 ```R
 
+# Get the employee has highest salary
+emp <- subset(data, salary == max(salary)) 
+print(emp)
 ```
 
 ```R
-
+# Query all employees whose job id is IT_PROG
+emp <- subset(data, job_id == "IT_PROG") 
+print(emp
 ```
 
 ```R
-
+# Query all employees whose job id is ST_MAN and salary higher than $10.000
+emp <- subset(data, job_id == "ST_MAN" & salary > 10000) 
+print(emp)
 ```
 
 ```R
-
+# Select the list of employees recruited since 2008
+emp <- subset(data, as.Date(hire_date) > as.Date("2008-01-01")) 
+print(emp)
 ```
- 
-9 R for Data Science
-10 R for Machine Learning
 
-Conclusion
+### 9.3. Write data to CSV file
+```R
+# Write data to new csv file
+data <- read.csv("employees.csv")
+emp <- subset(data, salary > 18000)
+write.csv(emp,"newfile.csv")
+newData <- read.csv("newfile.csv")
+print(newData)
+```
+
+```R
+# Write data to new csv file exclude row indexes.
+data <- read.csv("employees.csv")
+emp <- subset(data, salary > 18000)
+# Write data to new csv file
+write.csv(emp,"newfile.csv", row.names = FALSE)
+newData <- read.csv("newfile.csv");
+print(newData)
+```
+
+### 9.4. Excel data
+```R
+# Install xlsx library package
+install.packages("xlsx")
+any(grepl("xlsx",installed.packages()))
+# Load xlsx library
+library("xlsx")
+```
+
+### 9.5. Statistical analysis
+```R
+# Mean function example
+x <- c(25, 78, 3, 2, 46, 36, -37, 8, -17)
+# Find the Mean. 
+mean_value <- mean(x) 
+print(mean_value)
+```
+
+```R
+# Mean function example with trim attribute
+x <- c(25, 78, 3, 2, 46, 36, -37, 8, -17)
+# Find the Mean. 
+mean_value <- mean(x, trim = 0.3) 
+print(mean_value)
+```
+
+```R
+# Remove all NA(Not Availabel) before compute mean
+x <- c(25, 78, 3, 2, 46, 36, -37, 8, -17, NA)
+# Find the Mean. 
+mean_value <- mean(x) 
+print(mean_value)
+# Drop all NA values from calcualtion. 
+mean_value <- mean(x, na.rm =  TRUE) 
+print(mean_value)
+```
+
+```R
+# Median function example
+x <- c(25, 78, 3, 2, 46, 36, -37, 8, -17)
+# Calculate the median. 
+median_value <- median(x) 
+print(median_value)
+```
+
+```R
+# Mode function example
+mode <- function(v) {
+uniq <- unique(v) 
+uniq [which.max(tabulate(match(v,uniq)))]
+}
+
+# Create a vector of numbers.
+v <- c(2, 1, 1, 3, 4, 2, 2, 3, 1, 2, 4, 2, 1)
+# Calculate the mode using the user function. 
+result <- mode(v)
+print(result)
+# Create a vector of characters.
+charvec <- c("apple","lemon","banana","apple","lemon", "apple")
+# Use the user function to calculate the mode 
+result <- mode(charvec)
+print(result)
+```
+
+## Chapter 10: R for Machine Learning
+### 10.1. Data visulization
+```R
+# Install ggplot2 library package
+install.packages("ggplot2")
+any(grepl("ggplot2",installed.packages()))
+```
+
+```R
+# Prepair for sample data
+age = c(18, 21, 22, 24, 26, 26, 27, 30, 31, 35, 39, 40, 41, 42, 44, 46, 47, 48, 49, 54)
+spend = c(10, 11, 22, 15, 12, 13, 14, 33, 39, 37, 44, 27, 29, 20, 28, 21, 30, 31, 23, 24)
+data <- data.frame(age, spend)
+print(data)
+```
+
+```R
+# Ploting sample data
+library(ggplot2)
+ggplot(data, aes(x = age, y = spend)) + geom_point()
+```
+
+### 10.2. k-Means clustering
+```R
+# Iris data set prepairation
+library(datasets)
+print(iris)
+```
+
+```R
+# Iris data set visualization
+library(ggplot2)
+ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) + geom_point()
+```
+
+```R
+# Clustering data
+set.seed(20)
+clt<- kmeans(iris[,3:4], 3, nstart=20)
+clt
+```
+
+```R
+# Compare clusters and ground truth
+table(clt$cluster, iris$Species)
+```
+
+```R
+# Clustering visulization
+clt$cluster <- as.factor(clt$cluster)
+ggplot(iris, aes(
+    Petal.Length, 
+    Petal.Width, 
+    color = clt$cluster)) + geom_point()
+```

@@ -997,20 +997,32 @@ s$decrease_age(3)
 s$age
 ```
 
+## Chapter 09: R for Data Science
 ```R
-
+# Get and set current working directory
+getwd()
+setwd("C:/R Programing/")
+getwd()
 ```
 
 ```R
-
+# Read data from CSV file
+# 
+data <- read.csv("employees.csv") 
+print(data)
 ```
 
 ```R
-
+# Data discovery
+print(is.data.frame(data))
+print(ncol(data)) 
+print(nrow(data))
 ```
 
 ```R
-
+# Query highest salary 
+highestSalary <- max(data$salary) 
+print(highestSalary)
 ```
 
 ```R
